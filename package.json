@@ -1,0 +1,113 @@
+{
+  "name": "vscode-prompt2git-extension",
+  "displayName": "Prompt2Git for VSCode",
+  "description": "Simplifying Git learning with interactive prompts in VS Code",
+  "version": "0.1.0",
+  "icon": "images/icon.png",
+  "license": "MIT",
+  "publisher": "imgildev",
+  "author": {
+    "name": "Benjamin Rodriguez",
+    "url": "https://github.com/Imista"
+  },
+  "galleryBanner": {
+    "color": "#060401",
+    "theme": "dark"
+  },
+  "pricing": "Free",
+  "engines": {
+    "vscode": "^1.46.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "commands",
+    "generator",
+    "git",
+    "ia",
+    "prompt",
+    "prompt2git"
+  ],
+  "bugs": {
+    "url": "https://github.com/Imista/vscode-prompt2git-extension/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Imista/vscode-prompt2git-extension"
+  },
+  "homepage": "https://www.prompt2git.dev/",
+  "activationEvents": [
+    "onCommand:prompt2git.generate.command",
+    "onCommand:prompt2git.generate.text"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Prompt2Git",
+      "properties": {
+        "prompt2git.COHERE_API_KEY": {
+          "type": "string",
+          "default": "",
+          "description": "co:here API KEY"
+        },
+        "prompt2git.OPENAI_API_KEY": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI API Key"
+        },
+        "prompt2git.OPENAI_API_ORGANIZATION": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI API Organization"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "prompt2git.generate.command",
+        "title": "Prompt2Git: Get git command by description"
+      },
+      {
+        "command": "prompt2git.generate.text",
+        "title": "Prompt2Git: Show description about git command"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint --ext .js ./ --fix",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js",
+    "prepare": "husky install",
+    "commitlint": "commitlint --edit"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.46.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "glob": "^7.1.6",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "mocha": "^8.2.1",
+    "prettier": "3.0.3",
+    "typescript": "^4.1.3",
+    "vscode-test": "^1.5.0"
+  },
+  "dependencies": {
+    "cohere-ai": "^6.2.2",
+    "openai": "^4.7.0"
+  },
+  "lint-staged": {
+    "*.(js)": "npm run lint"
+  }
+}
